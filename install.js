@@ -39,7 +39,7 @@ if (platform === 'windows') {
 }
 
 async function install(res) {
-  res.pipe(tar.x({ cwd: binDirPath }));
+  res.pipe(tar.x({ strip: 1, cwd: binDirPath }));
   fs.symlinkSync(binFilePath, parentBinFilePath);
 }
 
